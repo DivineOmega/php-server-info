@@ -6,6 +6,7 @@ use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Metrics\ActiveHttpConnection;
 use DivineOmega\ServerInfo\Metrics\ApacheServerRunning;
 use DivineOmega\ServerInfo\Metrics\DiskUsagePercentage;
+use DivineOmega\ServerInfo\Metrics\LoadAverages;
 use DivineOmega\ServerInfo\Metrics\MemoryUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\Hostname;
 use DivineOmega\ServerInfo\Metrics\MySqlServerRunning;
@@ -33,6 +34,7 @@ class Metrics
         ApacheServerRunning::class,
         NginxServerRunning::class,
         ActiveHttpConnection::class,
+        LoadAverages::class,
     ];
 
     public function __construct(Server $server)

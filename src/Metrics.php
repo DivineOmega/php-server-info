@@ -7,6 +7,7 @@ use DivineOmega\ServerInfo\Metrics\DiskUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\MemoryUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\HostnameMetric;
 use DivineOmega\ServerInfo\Metrics\SwapUsagePercentage;
+use DivineOmega\ServerInfo\Metrics\TotalDiskSpaceBytes;
 use DivineOmega\ServerInfo\Metrics\TotalMemoryBytes;
 use DivineOmega\ServerInfo\Metrics\TotalSwapBytes;
 use DivineOmega\ServerInfo\Metrics\UptimeMetric;
@@ -19,6 +20,7 @@ class Metrics
         UptimeMetric::class,
         HostnameMetric::class,
         DiskUsagePercentage::class,
+        TotalDiskSpaceBytes::class,
         MemoryUsagePercentage::class,
         TotalMemoryBytes::class,
         SwapUsagePercentage::class,

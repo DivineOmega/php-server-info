@@ -3,9 +3,12 @@
 namespace DivineOmega\ServerInfo;
 
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
+use DivineOmega\ServerInfo\Metrics\ApacheServerRunning;
 use DivineOmega\ServerInfo\Metrics\DiskUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\MemoryUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\Hostname;
+use DivineOmega\ServerInfo\Metrics\MySqlServerRunning;
+use DivineOmega\ServerInfo\Metrics\NginxServerRunning;
 use DivineOmega\ServerInfo\Metrics\SwapUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\TotalDiskSpaceBytes;
 use DivineOmega\ServerInfo\Metrics\TotalMemoryBytes;
@@ -25,6 +28,9 @@ class Metrics
         TotalMemoryBytes::class,
         SwapUsagePercentage::class,
         TotalSwapBytes::class,
+        MySqlServerRunning::class,
+        ApacheServerRunning::class,
+        NginxServerRunning::class,
     ];
 
     public function __construct(Server $server)

@@ -5,7 +5,7 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class FreeMemoryBytes implements MetricInterface
+class MemoryUsagePercentage implements MetricInterface
 {
     private $connection;
     private $value;
@@ -17,18 +17,17 @@ class FreeMemoryBytes implements MetricInterface
 
     public function populate()
     {
-        $command = $this->connection->run('awk \'/^Mem/ {print $3}\' <(free)');
+        $used = (int) $this->connection->run('awk \'/^Mem/ {print $3}\' <(free)')->getOutput();
+        $total = (int) $this->connection->run('awk \'/^Mem/ {print $2}\' <(free)')->getOutput();
 
-        $output = $command->getOutput();
-
-        if ($output) {
-            $this->value = (int) $output;
+        if ($used && $total) {
+            $this->value = (int) round($used / $total * 100);
         }
     }
 
     public function getName()
     {
-        return 'free-memory-bytes';
+        return 'memory-usage-percentage';
     }
 
     public function getValue()

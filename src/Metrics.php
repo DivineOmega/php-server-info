@@ -60,7 +60,7 @@ class Metrics
         return $values;
     }
 
-    public function get($metricClass = null): MetricInterface
+    public function get(string $metricClass = null): MetricInterface
     {
         /** @var MetricInterface $metric */
         $metric = new $metricClass($this->server);

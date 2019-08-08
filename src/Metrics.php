@@ -4,6 +4,7 @@ namespace DivineOmega\ServerInfo;
 
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Metrics\DiskUsagePercentage;
+use DivineOmega\ServerInfo\Metrics\FreeMemoryBytes;
 use DivineOmega\ServerInfo\Metrics\HostnameMetric;
 use DivineOmega\ServerInfo\Metrics\UptimeMetric;
 
@@ -15,6 +16,7 @@ class Metrics
         UptimeMetric::class,
         HostnameMetric::class,
         DiskUsagePercentage::class,
+        FreeMemoryBytes::class,
     ];
 
     public function __construct(Server $server)

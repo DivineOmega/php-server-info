@@ -5,7 +5,7 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class HostnameMetric implements MetricInterface
+class Uptime implements MetricInterface
 {
     private $connection;
     private $value;
@@ -17,18 +17,18 @@ class HostnameMetric implements MetricInterface
 
     public function populate()
     {
-        $command = $this->connection->run('hostname');
+        $command = $this->connection->run('cat /proc/uptime | cut -d " " -f 1');
 
         $output = $command->getOutput();
 
         if ($output) {
-            $this->value = $output;
+            $this->value = (int) $output;
         }
     }
 
     public function getName()
     {
-        return 'hostname';
+        return 'uptime';
     }
 
     public function getValue()

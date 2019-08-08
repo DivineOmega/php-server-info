@@ -5,20 +5,20 @@ namespace DivineOmega\ServerInfo;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Metrics\DiskUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\MemoryUsagePercentage;
-use DivineOmega\ServerInfo\Metrics\HostnameMetric;
+use DivineOmega\ServerInfo\Metrics\Hostname;
 use DivineOmega\ServerInfo\Metrics\SwapUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\TotalDiskSpaceBytes;
 use DivineOmega\ServerInfo\Metrics\TotalMemoryBytes;
 use DivineOmega\ServerInfo\Metrics\TotalSwapBytes;
-use DivineOmega\ServerInfo\Metrics\UptimeMetric;
+use DivineOmega\ServerInfo\Metrics\Uptime;
 
 class Metrics
 {
     private $server;
 
     private const METRIC_CLASSES = [
-        UptimeMetric::class,
-        HostnameMetric::class,
+        Uptime::class,
+        Hostname::class,
         DiskUsagePercentage::class,
         TotalDiskSpaceBytes::class,
         MemoryUsagePercentage::class,

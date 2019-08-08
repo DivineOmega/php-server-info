@@ -4,17 +4,10 @@ namespace DivineOmega\ServerInfo\Metrics;
 
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
+use phpseclib\Crypt\Base;
 
-class DiskUsagePercentage implements MetricInterface
+class DiskUsagePercentage extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $command = $this->connection->run('df / --output=pcent | tail -n 1 | cut -d "%" -f 1');
@@ -31,8 +24,4 @@ class DiskUsagePercentage implements MetricInterface
         return 'disk-usage-percentage';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

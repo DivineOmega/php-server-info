@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class Uptime implements MetricInterface
+class Uptime extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $command = $this->connection->run('cat /proc/uptime | cut -d " " -f 1');
@@ -31,8 +23,4 @@ class Uptime implements MetricInterface
         return 'uptime';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

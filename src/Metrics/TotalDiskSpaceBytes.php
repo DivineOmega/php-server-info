@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class TotalDiskSpaceBytes implements MetricInterface
+class TotalDiskSpaceBytes extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $command = $this->connection->run('df / --output=avail | tail -n 1');
@@ -31,8 +23,4 @@ class TotalDiskSpaceBytes implements MetricInterface
         return 'total-disk-space-bytes';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

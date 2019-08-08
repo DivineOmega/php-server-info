@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class NginxServerRunning implements MetricInterface
+class NginxServerRunning extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $output = $this->connection->run('ps -e | grep nginx')->getOutput();
@@ -27,8 +19,4 @@ class NginxServerRunning implements MetricInterface
         return 'nginx-server-running';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

@@ -52,7 +52,7 @@ class Metrics
         $values = [];
 
         foreach($this->all() as $metric) {
-            $values[$metric->getName()] = $metric->getValue();
+            $values = array_merge($values, $metric->toArray());
         }
 
         return $values;

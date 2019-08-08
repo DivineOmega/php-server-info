@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class SwapUsagePercentage implements MetricInterface
+class SwapUsagePercentage extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $used = (int) $this->connection->run('awk \'/^Swap/ {print $3}\' <(free)')->getOutput();
@@ -30,8 +22,4 @@ class SwapUsagePercentage implements MetricInterface
         return 'swap-usage-percentage';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

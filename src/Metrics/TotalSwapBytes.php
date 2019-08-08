@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class TotalSwapBytes implements MetricInterface
+class TotalSwapBytes extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $command = $this->connection->run('awk \'/^Swap/ {print $2}\' <(free)');
@@ -31,8 +23,4 @@ class TotalSwapBytes implements MetricInterface
         return 'total-swap-bytes';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

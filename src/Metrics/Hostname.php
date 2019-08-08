@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class Hostname implements MetricInterface
+class Hostname extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $command = $this->connection->run('hostname');
@@ -31,8 +23,4 @@ class Hostname implements MetricInterface
         return 'hostname';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

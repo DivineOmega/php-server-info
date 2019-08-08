@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class TotalMemoryBytes implements MetricInterface
+class TotalMemoryBytes extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $command = $this->connection->run('awk \'/^Mem/ {print $2}\' <(free)');
@@ -31,8 +23,4 @@ class TotalMemoryBytes implements MetricInterface
         return 'total-memory-bytes';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

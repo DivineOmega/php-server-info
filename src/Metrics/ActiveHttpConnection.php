@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class ActiveHttpConnection implements MetricInterface
+class ActiveHttpConnection extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $activeConnections = 0;
@@ -31,10 +23,5 @@ class ActiveHttpConnection implements MetricInterface
     public function getName()
     {
         return 'active-http-connections';
-    }
-
-    public function getValue()
-    {
-        return $this->value;
     }
 }

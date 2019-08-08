@@ -5,16 +5,8 @@ namespace DivineOmega\ServerInfo\Metrics;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Server;
 
-class ApacheServerRunning implements MetricInterface
+class ApacheServerRunning extends BaseMetric implements MetricInterface
 {
-    private $connection;
-    private $value;
-
-    public function __construct(Server $server)
-    {
-        $this->connection = $server->connection();
-    }
-
     public function populate()
     {
         $output1 = $this->connection->run('ps -e | grep apache2')->getOutput();
@@ -28,8 +20,4 @@ class ApacheServerRunning implements MetricInterface
         return 'apache-server-running';
     }
 
-    public function getValue()
-    {
-        return $this->value;
-    }
 }

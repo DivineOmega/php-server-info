@@ -5,6 +5,7 @@ namespace DivineOmega\ServerInfo;
 use DivineOmega\ServerInfo\Interfaces\MetricInterface;
 use DivineOmega\ServerInfo\Metrics\ActiveHttpConnection;
 use DivineOmega\ServerInfo\Metrics\ApacheServerRunning;
+use DivineOmega\ServerInfo\Metrics\CpuUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\DiskUsagePercentage;
 use DivineOmega\ServerInfo\Metrics\LoadAverages;
 use DivineOmega\ServerInfo\Metrics\MemoryUsagePercentage;
@@ -35,6 +36,7 @@ class Metrics
         NginxServerRunning::class,
         ActiveHttpConnection::class,
         LoadAverages::class,
+        CpuUsagePercentage::class,
     ];
 
     public function __construct(Server $server)

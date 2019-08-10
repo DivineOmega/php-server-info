@@ -1,6 +1,6 @@
 {
     "name": "divineomega/php-server-info",
-    "description": "PHP Server Info",
+    "description": "Gets metrics on a server via an SSH connection",
     "type": "library",
     "require": {
         "php": ">=7.1",

@@ -13,6 +13,7 @@ abstract class BaseMetric implements MetricInterface
     public function __construct(Server $server)
     {
         $this->connection = $server->connection();
+        $this->populate();
     }
 
     public function getValue()

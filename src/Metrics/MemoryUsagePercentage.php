@@ -2,10 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-
-class MemoryUsagePercentage extends BaseMetric implements MetricInterface
+class MemoryUsagePercentage extends BaseMetric
 {
     public function populate()
     {

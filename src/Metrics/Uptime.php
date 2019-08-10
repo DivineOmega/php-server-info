@@ -2,10 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-
-class Uptime extends BaseMetric implements MetricInterface
+class Uptime extends BaseMetric
 {
     public function populate()
     {

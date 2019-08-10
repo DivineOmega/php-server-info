@@ -45,7 +45,7 @@ class Metrics
     public function all(): array
     {
         return array_map(function($metricClass) {
-            return $this->get($metricClass);
+            return new $metricClass($this->server);
         }, self::METRIC_CLASSES);
     }
 
@@ -60,12 +60,4 @@ class Metrics
         return $values;
     }
 
-    public function get(string $metricClass = null): MetricInterface
-    {
-        /** @var MetricInterface $metric */
-        $metric = new $metricClass($this->server);
-        $metric->populate();
-
-        return $metric;
-    }
 }

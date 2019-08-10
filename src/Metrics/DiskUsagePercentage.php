@@ -2,11 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-use phpseclib\Crypt\Base;
-
-class DiskUsagePercentage extends BaseMetric implements MetricInterface
+class DiskUsagePercentage extends BaseMetric
 {
     public function populate()
     {

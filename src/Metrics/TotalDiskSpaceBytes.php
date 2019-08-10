@@ -2,10 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-
-class TotalDiskSpaceBytes extends BaseMetric implements MetricInterface
+class TotalDiskSpaceBytes extends BaseMetric
 {
     public function populate()
     {

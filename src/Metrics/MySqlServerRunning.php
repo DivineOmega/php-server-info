@@ -2,10 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-
-class MySqlServerRunning extends BaseMetric implements MetricInterface
+class MySqlServerRunning extends BaseMetric
 {
     public function populate()
     {

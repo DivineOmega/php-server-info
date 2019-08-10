@@ -2,10 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-
-class LoadAverages extends BaseMetric implements MetricInterface
+class LoadAverages extends BaseMetric
 {
     public function populate()
     {

@@ -2,10 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-
-class Hostname extends BaseMetric implements MetricInterface
+class Hostname extends BaseMetric
 {
     public function populate()
     {

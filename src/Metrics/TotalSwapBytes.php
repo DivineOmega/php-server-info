@@ -2,10 +2,7 @@
 
 namespace DivineOmega\ServerInfo\Metrics;
 
-use DivineOmega\ServerInfo\Interfaces\MetricInterface;
-use DivineOmega\ServerInfo\Server;
-
-class TotalSwapBytes extends BaseMetric implements MetricInterface
+class TotalSwapBytes extends BaseMetric
 {
     public function populate()
     {
